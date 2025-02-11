@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS hacks for Cookie Clicker</title>
+        <script src="window-movement.js"></script>
+        <link rel="stylesheet" href="css/button.css">
+        <link rel="stylesheet" href="css/headers.css">
+        <link rel="stylesheet" href="css/body.css">
+        <link rel="stylesheet" href="css/borders.css">
+        <link rel="stylesheet" href="css/background.css">
+        <link rel="stylesheet" href="css/hover-effects.css">
+        <link rel="stylesheet" href="css/assets/fonts/cursive.css">
+        <link rel="stylesheet" href="css/assets/fonts/sans-serif.css"
+    </head>
+    <body>
+        <header class="header">
+            <h1>JS Console Hacks For Cookie Clicker</h1>
+        </header>
+        <div class="Go Home">
+            <button onclick="gobacktocookiepage()">Go Back</button>
+        </div>
+        <h2>Copy and paste into JS console</h2>
+        <div class="copy-code-infinite-cookies">
+            <button onclick="copyToClipboard('infiniteCookies')">Copy Infinite Cookies</button>
+            <p id="infiniteCookies">localStorage.setItem("cookies", Game.cookies("1000000000000000000000000000000000"););</p>
+        </div>
+    </body>
+</html>
