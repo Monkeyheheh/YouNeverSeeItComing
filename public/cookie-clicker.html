@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Clicker Cheats — Fire Clicker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">🔥 FIRE CLICKER</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="cookie-clicker.html">Cookie Clicker</a></li>
+      <li><a href="/blooket.html">Blooket</a></li>
+      <li><a href="mob-gate.html">Mob Gate</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>🍪 Cookie Clicker</h1>
+      <p>Copy a bookmarklet code below, then go to Cookie Clicker, open your browser console (F12 → Console), paste it in, and hit Enter. A cheat GUI will appear on screen.</p>
+    </div>
+
+    <div class="section-label">How To Use</div>
+    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 3rem; font-size: 0.8rem; line-height: 2; color: var(--muted);">
+      1. Open <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" style="color:var(--fire-orange)">Cookie Clicker</a> in your browser<br>
+      2. Press <strong style="color:var(--text)">F12</strong> to open DevTools, then click the <strong style="color:var(--text)">Console</strong> tab<br>
+      3. Click a code block below to copy it<br>
+      4. Paste it into the console and press <strong style="color:var(--text)">Enter</strong><br>
+      5. A 🔥 GUI will appear on your screen — drag it, use it, enjoy it
+    </div>
+
+    <div class="section-label">Bookmarklets</div>
+    <div class="tool-grid" id="tool-grid">
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🔥</span>
+          <div class="tool-card-title">Full Cheat GUI</div>
+        </div>
+        <p class="tool-card-desc">The complete Fire Clicker cheat panel. Cookies, autoclicker, max buildings, unlock upgrades, achievements, golden cookies, and CpS hacks — all in one draggable GUI.</p>
+        <div class="code-block" id="code-full" data-code="">Loading...</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🍪</span>
+          <div class="tool-card-title">Add 1 Trillion Cookies</div>
+        </div>
+        <p class="tool-card-desc">Instantly add 1,000,000,000,000 cookies to your total. Quick and simple, no GUI needed.</p>
+        <div class="code-block" data-code="Game.cookies+=1e12;Game.cookiesEarned+=1e12;">Game.cookies+=1e12;Game.cookiesEarned+=1e12;</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">⚡</span>
+          <div class="tool-card-title">Quick Autoclicker</div>
+        </div>
+        <p class="tool-card-desc">Starts a rapid autoclicker on the big cookie at 10ms intervals. Stop it by running the stop code.</p>
+        <div class="code-block" data-code="window._fc=setInterval(()=>document.getElementById('bigCookie').click(),10);">window._fc=setInterval(()=>document.getElementById('bigCookie').click(),10);</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🛑</span>
+          <div class="tool-card-title">Stop Autoclicker</div>
+        </div>
+        <p class="tool-card-desc">Stops the quick autoclicker started above.</p>
+        <div class="code-block" data-code="clearInterval(window._fc);console.log('Autoclicker stopped.');">clearInterval(window._fc);console.log('Autoclicker stopped.');</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🏪</span>
+          <div class="tool-card-title">Max All Buildings</div>
+        </div>
+        <p class="tool-card-desc">Sets every building to 500 and recalculates your CpS immediately.</p>
+        <div class="code-block" data-code="Object.values(Game.Objects).forEach(o=>{o.amount=500;o.bought=500;o.refresh()});Game.recalculateGains=1;">Object.values(Game.Objects).forEach(o=>{o.amount=500;o.bought=500;o.refresh()});Game.recalculateGains=1;</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🔓</span>
+          <div class="tool-card-title">Unlock All Upgrades</div>
+        </div>
+        <p class="tool-card-desc">Instantly buys and unlocks every upgrade in the game.</p>
+        <div class="code-block" data-code="Object.values(Game.Upgrades).forEach(u=>{u.bought=1;u.unlocked=1});Game.recalculateGains=1;">Object.values(Game.Upgrades).forEach(u=>{u.bought=1;u.unlocked=1});Game.recalculateGains=1;</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🏆</span>
+          <div class="tool-card-title">Unlock All Achievements</div>
+        </div>
+        <p class="tool-card-desc">Awards every achievement badge instantly.</p>
+        <div class="code-block" data-code="Object.values(Game.Achievements).forEach(a=>a.won=1);Game.recalculateGains=1;">Object.values(Game.Achievements).forEach(a=>a.won=1);Game.recalculateGains=1;</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">✨</span>
+          <div class="tool-card-title">Max Milk</div>
+        </div>
+        <p class="tool-card-desc">Sets milk to max (900) for maximum kitten upgrade bonuses.</p>
+        <div class="code-block" data-code="Game.milkProgress=900;Game.recalculateGains=1;">Game.milkProgress=900;Game.recalculateGains=1;</div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    🔥 Fire Clicker &mdash; <a href="/">Home</a> &mdash; <a href="/mob-gate.html">Mob Gate</a>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+  <script>
+    // Load full GUI bookmarklet code from cc-cheats.js
+    fetch('/js/cc-cheats.js')
+      .then(r => r.text())
+      .then(code => {
+        const minified = code.replace(/\/\/.*/g, '').replace(/\s+/g, ' ').trim();
+        const wrapped = `(function(){${minified}})();`;
+        const el = document.getElementById('code-full');
+        el.textContent = wrapped.slice(0, 120) + '...[Full GUI]';
+        el.dataset.code = wrapped;
+      });
+
+    // Click to copy on all code blocks
+    document.querySelectorAll('.code-block').forEach(block => {
+      block.addEventListener('click', () => {
+        const text = block.dataset.code || block.textContent;
+        navigator.clipboard.writeText(text).catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        });
+        block.classList.add('copied');
+        setTimeout(() => block.classList.remove('copied'), 2000);
+        let t = document.getElementById('toast');
+        t.textContent = 'Copied! Paste into Cookie Clicker console.';
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+      });
+    });
+  </script>
+</body>
+</html>

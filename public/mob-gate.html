@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mob Gate — Fire Clicker</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .launch-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .launch-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--fire-red), var(--fire-orange), var(--fire-yellow));
+    }
+    .launch-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--fire-yellow), var(--fire-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .launch-card-desc {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+      max-width: 560px;
+    }
+    .launch-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .code-display {
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      font-size: 0.68rem;
+      color: var(--fire-yellow);
+      font-family: 'Space Mono', monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+      line-height: 1.7;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+    .code-display:hover { border-color: var(--fire-orange); }
+    .code-display .hint {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      text-align: right;
+    }
+    .badge-live {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      margin-left: 0.6rem;
+      vertical-align: middle;
+      font-family: 'Space Mono', monospace;
+      background: rgba(0,200,80,0.12);
+      border: 1px solid rgba(0,200,80,0.35);
+      color: #00c850;
+    }
+    .steps {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .step {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(255,102,0,0.12);
+      border: 1px solid var(--fire-orange);
+      color: var(--fire-orange);
+      font-size: 0.65rem;
+      font-weight: bold;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .step strong { color: var(--text); }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .info-tile {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+    }
+    .info-tile-label {
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .info-tile-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: var(--fire-orange);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">🔥 FIRE CLICKER</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/cookie-clicker.html">Cookie Clicker</a></li>
+      <li><a href="/blooket.html">Blooket</a></li>
+      <li><a href="/mob-gate.html">Mob Gate</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>🚪 Mob Gate</h1>
+      <p>Inject the Mob Gate GUI into any page from your browser console. It loads games, tools, and more — all inside a draggable overlay.</p>
+    </div>
+
+    <div class="launch-card">
+      <div class="launch-card-title">Mob Gate Launcher <span class="badge-live">Live</span></div>
+      <p class="launch-card-desc">
+        Paste this into your browser console to inject Mob Gate. It purges the CDN cache automatically so you always get the latest version from GitHub.
+      </p>
+      <div class="launch-actions">
+        <button class="btn btn-fire" id="copy-btn" onclick="copyCode()">📋 Copy Code</button>
+        <a href="https://github.com/HahaAhhDev/Mobgate" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      </div>
+      <div class="code-display" onclick="copyCode()" id="code-block">
+        <span class="hint">▲ CLICK ANYWHERE IN THIS BOX TO COPY</span>
+      </div>
+    </div>
+
+    <div class="section-label">How To Use</div>
+    <div class="steps">
+      <div class="step"><span class="step-num">1</span><span>Click <strong>Copy Code</strong> above.</span></div>
+      <div class="step"><span class="step-num">2</span><span>Go to any page you want to inject Mob Gate into.</span></div>
+      <div class="step"><span class="step-num">3</span><span>Press <strong>F12</strong>, open the <strong>Console</strong> tab.</span></div>
+      <div class="step"><span class="step-num">4</span><span>Paste and press <strong>Enter</strong>. The GUI will appear on screen.</span></div>
+      <div class="step"><span class="step-num">5</span><span>Watch for <strong>[Mobgate]</strong> log messages confirming it loaded.</span></div>
+    </div>
+
+    <div class="section-label">Details</div>
+    <div class="info-grid">
+      <div class="info-tile"><div class="info-tile-label">CDN</div><div class="info-tile-value">jsDelivr</div></div>
+      <div class="info-tile"><div class="info-tile-label">Branch</div><div class="info-tile-value">@main</div></div>
+      <div class="info-tile"><div class="info-tile-label">Cache Busting</div><div class="info-tile-value">Auto ✓</div></div>
+      <div class="info-tile"><div class="info-tile-label">Status</div><div class="info-tile-value" style="color:#00c850">Live</div></div>
+    </div>
+  </main>
+
+  <footer>
+    🔥 Fire Clicker &mdash; <a href="/">Home</a> &mdash; <a href="/cookie-clicker.html">Cookie Clicker Cheats</a>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="/js/main.js"></script>
+  <script>
+    const CODE = `(function() {
+    if (window.mobgateLoading) {
+        console.warn('Mobgate is already loading...');
+        return;
+    }
+    window.mobgateLoading = true;
+    console.log('[Mobgate] Launcher started');
+    var purgeUrl = 'https://purge.jsdelivr.net/gh/HahaAhhDev/Mobgate@main/GUI.js';
+    console.log('[Mobgate] Purging cdn cache...');
+    fetch(purgeUrl, { method: 'GET' }).catch(function(e) {
+        console.warn('[Mobgate] Cache purge request failed (this is ok):', e);
+    }).then(function() {
+        var script = document.createElement('script');
+        var timestamp = Date.now();
+        var url = 'https://cdn.jsdelivr.net/gh/HahaAhhDev/Mobgate@main/GUI.js?t=' + timestamp;
+        script.src = url;
+        script.crossOrigin = 'anonymous';
+        console.log('[Mobgate] Loading from:', url);
+        script.onerror = function() {
+            console.error('[Mobgate] Load error:', this.src);
+            window.mobgateLoading = false;
+            alert('Failed to load Mobgate. Check your connection and try again.');
+        };
+        script.onload = function() {
+            console.log('[Mobgate] Script loaded successfully');
+            window.mobgateLoading = false;
+        };
+        document.head.appendChild(script);
+    });
+})();`;
+
+    // Render code into the block (safe, no HTML injection issues)
+    const block = document.getElementById('code-block');
+    const hint = block.querySelector('.hint');
+    const pre = document.createTextNode(CODE);
+    block.appendChild(pre);
+
+    function copyCode() {
+      navigator.clipboard.writeText(CODE).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = CODE;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      });
+      hint.textContent = '✓ COPIED — PASTE INTO CONSOLE';
+      hint.style.color = 'var(--fire-orange)';
+      document.getElementById('copy-btn').textContent = '✓ Copied!';
+      block.style.borderColor = 'var(--fire-orange)';
+      setTimeout(() => {
+        hint.textContent = '▲ CLICK ANYWHERE IN THIS BOX TO COPY';
+        hint.style.color = '';
+        document.getElementById('copy-btn').textContent = '📋 Copy Code';
+        block.style.borderColor = '';
+      }, 2500);
+      showToast('Copied! Paste into your browser console.');
+    }
+  </script>
+</body>
+</html>
